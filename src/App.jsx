@@ -12,7 +12,7 @@ const App = () => {
       const response = await axios.get("/api/awards");
       setAwards(response.data);
     } catch (error) {
-      console.error("Fetch Error: ", error);
+      console.error(error);
     }
   };
 
@@ -25,7 +25,7 @@ const App = () => {
       const response = await axios.post("/api/awards", award);
       setAwards([...awards, response.data]);
     } catch (error) {
-      console.error("CANNOT add award dur to:", error);
+      console.error(error);
     }
   };
 
@@ -36,7 +36,7 @@ const App = () => {
         awards.map((award) => (award._id === id ? response.data : award))
       );
     } catch (error) {
-      console.error("Error updating award:", error);
+      console.error(error);
     }
   };
 
@@ -45,7 +45,7 @@ const App = () => {
       await axios.delete(`/api/awards/${id}`);
       setAwards(awards.filter((award) => award._id !== id));
     } catch (error) {
-      console.error("Error deleting award:", error);
+      console.error(error);
     }
   };
 

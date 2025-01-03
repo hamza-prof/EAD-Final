@@ -5,7 +5,8 @@ const AwardList = ({ awards = [], onUpdate, onDelete, onEdit }) => {
   console.log("Awards prop:", awards);
 
   if (!Array.isArray(awards)) {
-    return <div>Error: awards must be an array.</div>;
+    console.log("Awards are not an arraty");
+    return "";
   }
 
   return (
