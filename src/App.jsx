@@ -33,7 +33,11 @@ const App = () => {
     try {
       const response = await axios.put(`/api/awards/${id}`, updatedData);
       setAwards(
-        awards.map((award) => (award._id === id ? response.data : award))
+        awards.map((award) => {
+          if (award._id === id) {
+            return response.data;
+          } else return award;
+        })
       );
     } catch (error) {
       console.error(error);
@@ -52,8 +56,6 @@ const App = () => {
   return (
     <>
       <div className="App">
-        {" "}
-        Hello World
         <div className="container">
           <Form
             onSubmit={handleAddAward}
